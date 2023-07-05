@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
+
 import GlobalStyle from './Auxiliares/GlobalStyles';
 import Account from './components/Account/Account';
 import EditIncomeStatement from './components/EditStatement/EditIncomeStatement';
@@ -8,24 +9,27 @@ import NewIncome from './components/NewIncome/NewStatement';
 import NewOutcome from './components/NewOutcome/NewStatement';
 import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
+import { Context } from "./context/context";
 
 function App() {
   return (
     <Screen>
-      <GlobalStyle />
-      <SmartPhoneContainer>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<SignIn />} />
-            <Route path="/cadastro" element={<SignUp />} />
-            <Route path="/home" element={<Account />} />
-            <Route path="/nova-transacao/entrada" element={<NewIncome />} />
-            <Route path="/nova-transacao/saida" element={<NewOutcome />} />
-            <Route path="/editar-registro/entrada/:id" element={<EditIncomeStatement />} />
-            <Route path="/editar-registro/saida/:id" element={<EditExpenseStatement />} />
-          </Routes>
-        </BrowserRouter>
-      </SmartPhoneContainer>
+      <Context>
+        <GlobalStyle />
+        <SmartPhoneContainer>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<SignIn />} />
+              <Route path="/cadastro" element={<SignUp />} />
+              <Route path="/home" element={<Account />} />
+              <Route path="/nova-transacao/entrada" element={<NewIncome />} />
+              <Route path="/nova-transacao/saida" element={<NewOutcome />} />
+              <Route path="/editar-registro/entrada/:id" element={<EditIncomeStatement />} />
+              <Route path="/editar-registro/saida/:id" element={<EditExpenseStatement />} />
+            </Routes>
+          </BrowserRouter>
+        </SmartPhoneContainer>
+      </Context>
     </Screen>
   );
 }

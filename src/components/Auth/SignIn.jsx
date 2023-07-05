@@ -1,10 +1,10 @@
-import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
-import { urlLogin } from "../../Auxiliares/constants";
+import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { carregamento } from "../../Auxiliares/constants";
 import { contexto } from "../../context/context";
+import { urlLogin } from "../../Auxiliares/constants";
 
 let tempoMs;
 
@@ -26,6 +26,7 @@ export default function SignIn(params) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
   function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
